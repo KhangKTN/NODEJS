@@ -2,23 +2,7 @@ import pool from "../config/connectDB";
 import multer from 'multer';
 
 let getHomepage = async(req, res) => {
-    /* let data = [];
-    connection.query(
-        'SELECT * FROM `users`',
-        function(err, results, fields){
-            console.log(results);
-            results.map((row) => {
-                data.push({
-                    id: row.Id,
-                    email: row.email,
-                    address: row.address,
-                    firstName: row.firstName,
-                    lastName: row.lastName
-                })
-            })
-            //console.log('>> data inside', data);
-        }
-        ) */
+    
     const [rows, fields] = await pool.execute('Select * From `users`');
     return res.render('index.ejs', {dataUser: rows, test: 'abc string test'});
 }
