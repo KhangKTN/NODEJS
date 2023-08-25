@@ -2,7 +2,7 @@ import pool from "../config/connectDB";
 import multer from 'multer';
 
 let getHomepage = async(req, res) => {
-    
+    //Hello
     const [rows, fields] = await pool.execute('Select * From `users`');
     return res.render('index.ejs', {dataUser: rows, test: 'abc string test'});
 }
